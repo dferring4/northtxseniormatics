@@ -459,7 +459,7 @@ section { padding-block: var(--sec); }
 .stage .disclaimer { font-size: .78rem; color: #8fb0af; text-align: center; margin: 0; }
 
 /* utility-bar consultation button (item 6) */
-.util-cta { background:#22160a; color:#fbf9f5; border-radius:999px; padding:.3rem .9rem; font-weight:600; text-decoration:none; }
-.util-cta:hover { background:#000; color:#fff; }
+.util-cta { background:#f0a020; color:#22160a; border-radius:999px; padding:.3rem .9rem; font-weight:600; text-decoration:none; }
+.util-cta:hover { background:#d98a12; color:#22160a; }
 /* keep horizontal overflow from ever appearing on mobile */
 html { overflow-x: hidden; }
