@@ -50,6 +50,17 @@
     });
   });
 
+  /* Bottom action bar: reveal after scrolling into the content */
+  var callbar = document.querySelector(".callbar");
+  if (callbar) {
+    var onScroll = function () {
+      if (window.pageYOffset > 320) callbar.classList.add("show");
+      else callbar.classList.remove("show");
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
   /* Live Dialogue demo */
   var stage = document.querySelector(".stage");
   if (stage) {
