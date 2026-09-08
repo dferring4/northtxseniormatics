@@ -55,7 +55,7 @@
   if (stage) {
     /* ---- TIMING: seconds into your audio recording that each spoken line begins.
        Recording is ~11s. Tell me the real start time of each line to fine-tune. ---- */
-    var CUE = [0, 2.5, 5.5];   // line 1, line 2, line 3
+    var CUE = [0, 3.0, 5.5];   // line 1, line 2, line 3
     var ENDT = 11;             // ~length of the recording (seconds)
 
     var statusText = stage.querySelector(".status-text");
