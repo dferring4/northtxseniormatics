@@ -53,6 +53,11 @@
   /* Live Dialogue demo */
   var stage = document.querySelector(".stage");
   if (stage) {
+    /* ---- TIMING: seconds into your audio recording that each spoken line begins.
+       Recording is ~11s. Tell me the real start time of each line to fine-tune. ---- */
+    var CUE = [0, 3.8, 7.5];   // line 1, line 2, line 3
+    var ENDT = 11;             // ~length of the recording (seconds)
+
     var statusText = stage.querySelector(".status-text");
     var transcript = stage.querySelector(".transcript");
     var soundBtn   = stage.querySelector(".snd");
@@ -75,45 +80,56 @@
         if (!soundOn && audio) audio.pause();
       });
     }
-    function playAudio() {
-      if (soundOn && audio) { try { audio.currentTime = 0; var p = audio.play(); if (p) p.catch(function(){}); } catch (e) {} }
-    }
 
     var lines = [
       { who: "Hub",      cls: "hub",  text: "Margaret, I noticed a fall. Are you okay?" },
       { who: "Margaret", cls: "them", text: "I slipped by the couch and I can\u2019t get up." },
       { who: "Family",   cls: "hub",  text: "I can hear you, Mom \u2014 stay still, help is coming." }
     ];
-    var timers = [];
+    var timers = [], onTime = null, onEnd = null, shown = [];
     function clearTimers() { timers.forEach(clearTimeout); timers = []; }
     function at(ms, fn) { timers.push(setTimeout(fn, ms)); }
     function setPhase(p, label) { stage.setAttribute("data-phase", p); if (label) statusText.textContent = label; }
-    function showLine(i) {
-      var l = lines[i];
-      var el = document.createElement("div");
+    function reveal(i) { if (!shown[i]) { shown[i] = true;
+      var l = lines[i], el = document.createElement("div");
       el.className = "line " + (l.cls === "them" ? "them" : "");
       el.innerHTML = "<b>" + l.who + "</b>" + l.text;
       transcript.appendChild(el);
       requestAnimationFrame(function () { el.classList.add("show"); });
+    } }
+    function finish() { setPhase("resolved", "Help dispatched \u00b7 with context"); }
+    function detach() {
+      if (audio && onTime) audio.removeEventListener("timeupdate", onTime);
+      if (audio && onEnd) audio.removeEventListener("ended", onEnd);
+      onTime = onEnd = null;
     }
-    function run() {
-      clearTimers();
-      transcript.innerHTML = "";
-      if (reduce) {
-        setPhase("talking", "Live two-way voice \u00b7 connected"); playAudio();
-        lines.forEach(function (_, i) { showLine(i); });
-        at(50, function () { setPhase("resolved", "Help dispatched \u00b7 with context"); });
-        return;
+
+    function converse() {
+      playAudio();
+      if (soundOn && audio && !isNaN(audio.duration || NaN) || (soundOn && audio)) {
+        // sync captions to the actual audio playback
+        onTime = function () { var t = audio.currentTime; for (var i = 0; i < CUE.length; i++) if (t >= CUE[i]) reveal(i); };
+        onEnd  = function () { reveal(0); reveal(1); reveal(2); finish(); detach(); };
+        audio.addEventListener("timeupdate", onTime);
+        audio.addEventListener("ended", onEnd);
+        at((ENDT + 3) * 1000, function () { reveal(0); reveal(1); reveal(2); }); // safety net
+      } else {
+        // no sound: pace the captions to match the recording length
+        CUE.forEach(function (sec, i) { at(sec * 1000, function () { reveal(i); }); });
+        at(ENDT * 1000, finish);
       }
+    }
+    function playAudio() {
+      if (soundOn && audio) { try { audio.currentTime = 0; var p = audio.play(); if (p) p.catch(function(){}); } catch (e) {} }
+    }
+
+    function run() {
+      clearTimers(); detach();
+      transcript.innerHTML = ""; shown = [];
+      if (reduce) { setPhase("talking", "Live two-way voice \u00b7 connected"); converse(); return; }
       setPhase("alert", "Fall detected \u00b7 Living Room");
-      at(2000, function () { setPhase("connecting", "Opening live connection\u2026"); });
-      at(3600, function () {
-        setPhase("talking", "Live two-way voice \u00b7 connected"); playAudio();
-        showLine(0);
-        at(1600, function () { showLine(1); });
-        at(3400, function () { showLine(2); });
-      });
-      at(9800, function () { setPhase("resolved", "Help dispatched \u00b7 with context"); });
+      at(1500, function () { setPhase("connecting", "Opening live connection\u2026"); });
+      at(2700, function () { setPhase("talking", "Live two-way voice \u00b7 connected"); converse(); });
     }
     stage.addEventListener("click", function (e) {
       if (e.target.closest(".play") || e.target.closest(".replay")) run();
