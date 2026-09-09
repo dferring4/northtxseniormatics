@@ -61,6 +61,13 @@
     onScroll();
   }
 
+  /* Scroll cue (join page): fade out once the user starts scrolling */
+  var scrollCue = document.querySelector(".scroll-cue");
+  if (scrollCue) {
+    var hideCue = function () { if (window.pageYOffset > 120) scrollCue.classList.add("hidden"); else scrollCue.classList.remove("hidden"); };
+    window.addEventListener("scroll", hideCue, { passive: true });
+  }
+
   /* Live Dialogue demo */
   var stage = document.querySelector(".stage");
   if (stage) {
