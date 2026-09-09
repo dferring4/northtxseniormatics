@@ -342,7 +342,7 @@ section { padding-block: var(--sec); }
   .burger[aria-expanded="true"] span::before { transform: translateY(7px) rotate(45deg); }
   .burger[aria-expanded="true"] span::after { transform: translateY(-7px) rotate(-45deg); }
   .nav-tools .textsize { display: none; }
-  .m-agents { display: inline-flex; margin-left: auto; padding: .35rem .6rem; font-size: .85rem;white-space: nowrap; }
+  .m-agents { display: inline-flex; margin-left: auto; padding: .35rem .6rem; font-size: .85rem; }
   .steps, .pillars, .posts, .split, .products, .foot .cols { grid-template-columns: 1fr; }
   .utility .wrap { justify-content: center; }
   body { padding-bottom: 122px; }
