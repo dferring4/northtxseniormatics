@@ -488,3 +488,6 @@ html { overflow-x: hidden; }
 .recruit-points li::before { content: ""; position: absolute; left: 0; top: .5em; width: 11px; height: 11px; border-radius: 50%; background: var(--amber); }
 .recruit-points b { color: #fff; display: block; font-family: var(--serif); font-size: 1.16rem; font-weight: 600; margin-bottom: .15rem; }
 @media (max-width: 860px){ .recruit .wrap { grid-template-columns: 1fr; } }
+
+/* inclusive note under the recruitment CTA */
+.recruit-note { margin: .95rem 0 0; font-size: .98rem; color: #9fbab9; max-width: 48ch; }
