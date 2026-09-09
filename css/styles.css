@@ -475,3 +475,16 @@ html { overflow-x: hidden; }
 /* "Keep reading" link on blog cards */
 .readmore { margin-top: auto; padding-top: .3rem; align-self: flex-start; font-weight: 700; color: var(--teal-d); text-decoration: none; border-bottom: 2px solid var(--amber); padding-bottom: 1px; }
 .readmore:hover { color: var(--amber-d); border-color: var(--amber-d); }
+
+/* ---- homepage recruitment band (agents & brokers) ---- */
+.recruit { background: var(--ink); color: #eaf3f2; }
+.recruit .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(2rem,5vw,4.5rem); align-items: center; }
+.recruit .kicker { color: var(--amber); }
+.recruit h2 { color: #fff; }
+.recruit p { color: #c7d8d7; font-size: 1.14rem; }
+.recruit .btn { margin-top: 1.5rem; }
+.recruit-points { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.3rem; }
+.recruit-points li { padding-left: 1.6rem; position: relative; color: #c1d5d4; line-height: 1.5; }
+.recruit-points li::before { content: ""; position: absolute; left: 0; top: .5em; width: 11px; height: 11px; border-radius: 50%; background: var(--amber); }
+.recruit-points b { color: #fff; display: block; font-family: var(--serif); font-size: 1.16rem; font-weight: 600; margin-bottom: .15rem; }
+@media (max-width: 860px){ .recruit .wrap { grid-template-columns: 1fr; } }
