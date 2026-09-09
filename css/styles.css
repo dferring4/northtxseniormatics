@@ -492,9 +492,14 @@ html { overflow-x: hidden; }
 /* inclusive note under the recruitment CTA */
 .recruit-note { margin: .95rem 0 0; font-size: .98rem; color: #9fbab9; max-width: 48ch; }
 
-/* scroll cue (join page hero) */
-.scroll-cue { display: flex; flex-direction: column; align-items: center; gap: .3rem; width: fit-content; margin: 1.9rem auto 0; color: var(--teal-d); text-decoration: none; font-weight: 700; font-size: .96rem; transition: opacity .3s ease; }
+/* scroll cue (join page) — pinned to the bottom of the viewport at the fold */
+.scroll-cue { position: fixed; left: 50%; bottom: 1.4rem; transform: translateX(-50%); z-index: 70;
+  display: flex; flex-direction: column; align-items: center; gap: .3rem;
+  padding: .5rem 1rem; border-radius: 999px; background: rgba(251,249,245,.92); box-shadow: var(--shadow);
+  color: var(--teal-d); text-decoration: none; font-weight: 700; font-size: .92rem; transition: opacity .3s ease; }
 .scroll-cue:hover { color: var(--amber-d); }
-.scroll-cue .chev { width: 28px; height: 28px; stroke: var(--amber); stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round; animation: cue-bounce 1.7s ease-in-out infinite; }
+.scroll-cue .chev { width: 24px; height: 24px; stroke: var(--amber); stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round; animation: cue-bounce 1.7s ease-in-out infinite; }
 .scroll-cue.hidden { opacity: 0; pointer-events: none; }
 @keyframes cue-bounce { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(7px); } }
+/* keep it clear of the mobile call bar */
+@media (max-width: 720px){ .scroll-cue { bottom: calc(env(safe-area-inset-bottom, 0px) + 1rem); } }
