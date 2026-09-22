@@ -58,7 +58,7 @@ Radar-based fall detection with no cameras and no wearables. After a fall is det
 - Insights (blog): https://northtxseniormatics.com/insights/
 - FAQ: https://northtxseniormatics.com/frequently-asked-questions/
 - Contact: https://northtxseniormatics.com/contact/
-- Partner Products (Home Help Network): https://northtxseniormatics.com/partner-products/
+- More Solutions (Home Help Network): https://northtxseniormatics.com/partner-products/
 
 -----
 
