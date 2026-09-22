@@ -41,7 +41,7 @@ Radar-based fall detection with no cameras and no wearables. After a fall is det
 - No wearable pendants or buttons are required.
 - Hardware includes local intelligence and battery backup, so it keeps working during internet or power outages.
 - SeniorMatics is the platform; Grand-App AI is the parent technology company; North TX SeniorMatics is the North Texas sales agency.
-- Insurance agents and brokers can join the North TX SeniorMatics partner program to offer clients privacy-first senior safety technology, beyond traditional insurance products. Local onboarding, marketing materials, and ongoing support are provided.
+- Insurance agents can partner with North TX SeniorMatics to offer SeniorMatics to their clients (see the Join Our Team page).
 
 -----
 
@@ -54,7 +54,14 @@ Radar-based fall detection with no cameras and no wearables. After a fall is det
 - For Families: https://northtxseniormatics.com/peace-of-mind-for-families/
 - For Seniors: https://northtxseniormatics.com/independence-for-seniors/
 - For Facilities: https://northtxseniormatics.com/smart-solutions-for-facilities/
-- Become a Partner / insurance agent & broker partner program: https://northtxseniormatics.com/join-our-team/
+- Join Our Team (insurance agents): https://northtxseniormatics.com/join-our-team/
 - Insights (blog): https://northtxseniormatics.com/insights/
 - FAQ: https://northtxseniormatics.com/frequently-asked-questions/
 - Contact: https://northtxseniormatics.com/contact/
+- Partner Products (Home Help Network): https://northtxseniormatics.com/partner-products/
+
+-----
+
+## Partners
+
+North TX SeniorMatics partners with Home Help Network LLC to offer home repairs, mobility and accessibility upgrades (ramps, stair lifts, grab bars, bathroom modifications), post-hospital home preparation, and home safety assessments for seniors and families. Learn more or download their app: https://northtxseniormatics.com/partner-products/

@@ -503,3 +503,24 @@ html { overflow-x: hidden; }
 @keyframes cue-bounce { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(7px); } }
 /* keep it clear of the mobile call bar */
 @media (max-width: 720px){ .scroll-cue { bottom: calc(env(safe-area-inset-bottom, 0px) + 1rem); } }
+
+/* ---- Partner products (homepage strip + Home Help Network page) ---- */
+.partner-strip { background: #eef4f4; }
+.partner-strip .wrap { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; justify-content: space-between; }
+.partner-strip .ps-left { display: flex; align-items: center; gap: 1.3rem; }
+.partner-strip img { width: 76px; height: 76px; object-fit: contain; flex: none; }
+.partner-strip .kicker { margin-bottom: .1rem; }
+.partner-strip h2 { font-size: clamp(1.4rem,2.6vw,2rem); margin: 0; }
+.partner-strip p { margin: .35rem 0 0; color: var(--muted); max-width: 54ch; }
+.partner-by { display: flex; align-items: center; gap: .6rem; margin: 0 0 1.1rem; }
+.partner-by img { width: 46px; height: 46px; object-fit: contain; }
+.partner-by span { color: var(--muted); }
+.img-trio { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.1rem; }
+.img-trio img { width: 100%; aspect-ratio: 3/2; object-fit: cover; border-radius: 14px; box-shadow: var(--shadow); }
+.benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 1.9rem; }
+.benefit { display: grid; grid-template-columns: 66px 1fr; gap: 1.1rem; align-items: start; }
+.benefit img { width: 66px; height: 66px; object-fit: contain; }
+.benefit h3 { font-size: 1.22rem; margin: .1rem 0 .35rem; }
+.benefit p { color: var(--muted); margin: 0; }
+@media (max-width: 860px){ .benefits { grid-template-columns: 1fr; } }
+@media (max-width: 720px){ .img-trio { grid-template-columns: 1fr; } .partner-strip .wrap { flex-direction: column; align-items: flex-start; } }
