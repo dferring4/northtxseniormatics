@@ -538,3 +538,11 @@ html { overflow-x: hidden; }
   .partner-hero .ph-media { margin: 0; }
   .partner-hero .ph-media img { height: auto; min-height: 0; max-height: none; }
 }
+
+/* ---- Home Help closing CTA: logo beside the text ---- */
+.cta-band.cta-partner .wrap { display: flex; align-items: center; justify-content: center; gap: clamp(1.5rem,4vw,3rem); text-align: left; flex-wrap: wrap; }
+.cta-band.cta-partner .cta-logo { width: clamp(130px,17vw,172px); height: auto; flex: none; }
+.cta-band.cta-partner .cta-copy { max-width: 44rem; }
+.cta-band.cta-partner p { margin-inline: 0; }
+.cta-band.cta-partner .row { justify-content: flex-start; }
+@media (max-width: 640px){ .cta-band.cta-partner .wrap { flex-direction: column; text-align: center; } .cta-band.cta-partner .row { justify-content: center; } }
