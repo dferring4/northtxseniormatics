@@ -524,3 +524,17 @@ html { overflow-x: hidden; }
 .benefit p { color: var(--muted); margin: 0; }
 @media (max-width: 860px){ .benefits { grid-template-columns: 1fr; } }
 @media (max-width: 720px){ .img-trio { grid-template-columns: 1fr; } .partner-strip .wrap { flex-direction: column; align-items: flex-start; } }
+
+/* ---- Home Help hero: image fills the right column on desktop; slots under the headline on mobile ---- */
+.page-hero.has-img.partner-hero .wrap { grid-template-areas: "head media" "body media"; align-items: start; gap: .8rem clamp(2rem,5vw,4rem); }
+.partner-hero .ph-head { grid-area: head; }
+.partner-hero .ph-body { grid-area: body; }
+.partner-hero .ph-head h1 { margin-bottom: 0; }
+.partner-hero .ph-body > :first-child { margin-top: 0; }
+.partner-hero .ph-media { grid-area: media; align-self: stretch; }
+.partner-hero .ph-media img { height: 100%; min-height: 340px; max-height: 520px; object-fit: cover; }
+@media (max-width: 900px){
+  .page-hero.has-img.partner-hero .wrap { grid-template-columns: 1fr; grid-template-areas: "head" "media" "body"; gap: 1.1rem; }
+  .partner-hero .ph-media { margin: 0; }
+  .partner-hero .ph-media img { height: auto; min-height: 0; max-height: none; }
+}
